@@ -1,0 +1,15 @@
+Very simple platformer in Unity, including one-way platforms and a camera
+that follows the player.
+
+Lessons learned:
+- It was a bit tricky to not allow the player to multi-jump when in the air
+I think my implementation here is buggy, I checked velocity and you could
+probably jump again at the top of the jump. Checking position doesn't work
+unless you know the height of the surface under you. Probably the best way
+is to have a "is touching ground" state variable using OnCollision2D or similar.
+- Cinemachine made it really easy to have the camera follow the player. I just
+kept the default settings.
+- I used impulses for the jumps which worked well except they feel a bit floaty. Possibly tuning jump height or character mass would help there.
+- I used tilemaps to create the ground and platforms. Worked well and it would be easy to change to using real art instead of built-in sprites.
+- PlatformEffector2D allowed me to create one way platforms (e.g. platforms you can jump up through). Needs work though as currently you can end up jumping into the platform and end up standing on the bottom edge of it.
+
